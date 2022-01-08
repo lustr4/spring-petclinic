@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Create container image') {
       steps {
-	sh "chmod +x mvn"
+	sh "chmod +x -R ${env.WORKSPACE}"
         sh 'docker build --tag java-docker:latest .'
       }
     }
