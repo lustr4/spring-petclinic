@@ -3,9 +3,8 @@ pipeline {
   stages {
     stage('Delete image if exists') {
       steps {
-        sh '''
-          docker rmi java-docker:latest
-        '''
+        //sh 'docker rmi java-docker:latest'
+	sh 'docker ps'
       }
     }
     stage('Create container image') {
