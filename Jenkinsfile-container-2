@@ -4,12 +4,12 @@ pipeline {
     stage('Delete image if exists') {
       steps {
         //sh 'docker rmi java-docker:latest'
-	sh 'docker ps'
+	sh 'docker ps -all'
       }
     }
     stage('Create container image') {
       steps {
-	sh "chmod +x mvn"
+	sh "echo ${env.WORKSPACE}"
         sh 'docker build --tag java-docker:latest .'
       }
     }
